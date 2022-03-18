@@ -2,7 +2,7 @@ import 'package:movie_app/model/result.dart';
 
 class Movie {
   int? page;
-  List<Results>? results;
+  List<Result>? results;
   int? totalPages;
   int? totalResults;
 
@@ -11,9 +11,9 @@ class Movie {
   Movie.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
-      results = <Results>[];
+      results = <Result>[];
       json['results'].forEach((v) {
-        results!.add(Results.fromJson(v));
+        results!.add(Result.fromJson(v));
       });
     }
     totalPages = json['total_pages'];

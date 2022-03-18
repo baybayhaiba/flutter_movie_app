@@ -1,4 +1,4 @@
-class Results {
+class Result {
   bool? adult;
   String? backdropPath;
   List<int>? genreIds;
@@ -14,7 +14,7 @@ class Results {
   num? voteAverage;
   int? voteCount;
 
-  Results(
+  Result(
       {this.adult,
       this.backdropPath,
       this.genreIds,
@@ -30,7 +30,7 @@ class Results {
       this.voteAverage,
       this.voteCount});
 
-  Results.fromJson(Map<String, dynamic> json) {
+  Result.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();
@@ -64,5 +64,9 @@ class Results {
     data['vote_average'] = this.voteAverage;
     data['vote_count'] = this.voteCount;
     return data;
+  }
+
+  String getImage() {
+    return 'https://image.tmdb.org/t/p/w500/${backdropPath}';
   }
 }

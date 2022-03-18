@@ -13,7 +13,7 @@ class MovieApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return  MaterialApp(
       title: 'MovieApp',
-      home: const Home(),
+      home: Home(),
       theme: FooderlichTheme.dark(),
       //onGenerateRoute: (routeSettings) => MovieRoute().onGenerateRoute(routeSettings),
     );

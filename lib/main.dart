@@ -15,7 +15,7 @@ class MovieApp extends StatelessWidget {
       title: 'MovieApp',
       home: Home(),
       theme: FooderlichTheme.dark(),
-      //onGenerateRoute: (routeSettings) => MovieRoute().onGenerateRoute(routeSettings),
+      onGenerateRoute: (routeSettings) => MovieRoute().onGenerateRoute(routeSettings),
     );
   }
 }

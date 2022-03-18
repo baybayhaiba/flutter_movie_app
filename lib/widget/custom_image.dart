@@ -1,12 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomImage extends StatelessWidget {
   const CustomImage(
       {Key? key,
       required this.image,
-      this.width = 100,
-      this.height = 100,
+      this.title,
+      this.width = 350,
+      this.height = 350,
       this.bgColors,
       this.radius = 0,
       this.borderRadiusGeometry,
@@ -16,6 +18,7 @@ class CustomImage extends StatelessWidget {
       : super(key: key);
 
   final String image;
+  final String? title;
   final double width;
   final double height;
   final Color? bgColors;
@@ -42,12 +45,15 @@ class CustomImage extends StatelessWidget {
           ? CachedNetworkImage(
               imageUrl: image,
               placeholder: (ctx, url) => BlankImageWidget(),
-              errorWidget: (ctx, url, error) => BlankImageWidget(),
+              errorWidget: (ctx, url, error) => Container(
+                color: Colors.red,
+              ),
               imageBuilder: (ctx, imageProvider) => Container(
                 decoration: BoxDecoration(
-                    image: DecorationImage(image: imageProvider, fit: boxFit),
-                    borderRadius:
-                        borderRadiusGeometry ?? BorderRadius.circular(radius)),
+                  image: DecorationImage(image: imageProvider, fit: boxFit),
+                  borderRadius:
+                      borderRadiusGeometry ?? BorderRadius.circular(radius),
+                ),
               ),
             )
           : ClipRRect(

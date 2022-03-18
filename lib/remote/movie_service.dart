@@ -7,9 +7,11 @@ import '../model/status.dart';
 import '../util/const.dart';
 
 class MovieService {
-  static Future<Resource<Movie>> getMovie({page = 1}) async {
+  static Future<Resource<Movie>> getMovie(
+      {required MovieType type, page = 1}) async {
     try {
-      final response = await Http.get(Uri.parse('$raw$page'));
+      final response =
+          await Http.get(Uri.parse(movieUrl(type: type, page: page)));
 
       if (response.statusCode == 200) {
         var jsonDecodeString = jsonDecode(response.body);
@@ -19,7 +21,6 @@ class MovieService {
 
       return Resource.fail(error: Exception('Cant get API'));
     } catch (error) {
-
       return Resource.fail();
     }
   }

@@ -51,6 +51,8 @@ class MovieItem extends StatelessWidget {
       height: 70,
       alignment: Alignment.center,
       child: Text(result.title ?? '',
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
           style: GoogleFonts.lato(fontSize: 24), textAlign: TextAlign.center),
     );
   }

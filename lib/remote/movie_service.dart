@@ -21,6 +21,7 @@ class MovieService {
 
       return Resource.fail(error: Exception('Cant get API'));
     } catch (error) {
+
       return Resource.fail();
     }
   }

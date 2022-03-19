@@ -24,7 +24,7 @@ class MovieBloc {
             {_moviePopularSink.add(value.data!)}
         });
 
-    MovieService.getMovie(type: MovieType.upcomming).then((value) => {
+    MovieService.getMovie(type: MovieType.upcoming).then((value) => {
           if (value.status == Status.success && value.data != null)
             {_movieUpcomingSink.add(value.data!)}
         });

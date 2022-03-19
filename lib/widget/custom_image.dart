@@ -11,6 +11,7 @@ class CustomImage extends StatelessWidget {
       this.height = 350,
       this.bgColors,
       this.radius = 0,
+      this.isJustBorderTop = false,
       this.borderRadiusGeometry,
       this.boxFit = BoxFit.cover,
       this.shape,
@@ -24,6 +25,7 @@ class CustomImage extends StatelessWidget {
   final Color? bgColors;
   final double radius;
   final bool isNetwork;
+  final bool isJustBorderTop;
   final BorderRadiusGeometry? borderRadiusGeometry;
   final BoxFit boxFit;
   final BoxShape? shape;
@@ -51,8 +53,11 @@ class CustomImage extends StatelessWidget {
               imageBuilder: (ctx, imageProvider) => Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(image: imageProvider, fit: boxFit),
-                  borderRadius:
-                      borderRadiusGeometry ?? BorderRadius.circular(radius),
+                  borderRadius: isJustBorderTop
+                      ? BorderRadius.only(
+                          topLeft: Radius.circular(radius),
+                          topRight: Radius.circular(radius))
+                      : borderRadiusGeometry ?? BorderRadius.circular(radius),
                 ),
               ),
             )

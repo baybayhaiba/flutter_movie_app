@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/model/result.dart';
 import 'package:movie_app/widget/custom_image.dart';
+import 'package:movie_app/widget/movie_detail_item.dart';
 
 class DetailScreen extends StatelessWidget {
   final Result result;
@@ -19,26 +20,10 @@ class DetailScreen extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-            child: Container(
-              height: 1000,
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(
-                          children: [
-
-                          ],
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ) ,
-              decoration: const BoxDecoration(borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-              color: Colors.green),
+            child: SingleChildScrollView(
+              child: MovieDetailItem(
+                result: result,
+              ),
             ),
           )
         ],

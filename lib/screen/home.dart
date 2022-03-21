@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/model/result.dart';
+import 'package:movie_app/route/movie_router.dart';
 import 'package:movie_app/widget/movie_popular_item.dart';
 import 'package:movie_app/widget/movie_upcoming_item.dart';
 
